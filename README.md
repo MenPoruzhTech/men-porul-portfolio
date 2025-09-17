@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MenPoruzhTech Portfolio Website
 
 A highly animated, visually appealing company portfolio website built with Next.js, Tailwind CSS, and Framer Motion.
@@ -173,3 +174,6 @@ For support, email contact@menporuzh.tech or create an issue on GitHub.
 ---
 
 Built with ❤️ by MenPoruzhTech using Next.js and Framer Motion.
+=======
+# men-porul-portfolio
+>>>>>>> aad4befb6ae8a72cbc9167dbf9bc0a288efda81e
