@@ -3,45 +3,35 @@
 import { motion } from "framer-motion"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { HeroSection } from "@/components/hero-section"
-import { FeaturesSection } from "@/components/features-section"
-import { StatsSection } from "@/components/stats-section"
-import { CTASection } from "@/components/cta-section"
+import { IndianHeroSection } from "@/components/indian-hero-section"
+import { IndianAboutSection } from "@/components/indian-about-section"
+import { ComprehensiveServicesSection } from "@/components/comprehensive-services-section"
+import { TechnologiesGridSection } from "@/components/technologies-grid-section"
+import { AnalyticsSection } from "@/components/analytics-section"
+import { FinalStatsSection } from "@/components/final-stats-section"
+import { EnhancedCTASection } from "@/components/enhanced-cta-section"
+import { CodeTypingAnimation } from "@/components/code-typing-animation"
+import { SimpleAnimation } from "@/components/simple-animations"
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Animated background particles */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--neon-cyan)]/5 via-transparent to-[var(--neon-green)]/5" />
-        {[...Array(50)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-[var(--neon-cyan)] rounded-full opacity-30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -100, 0],
-              opacity: [0.3, 0.8, 0.3],
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Number.POSITIVE_INFINITY,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
+      {/* Subtle background gradient */}
+      <div className="fixed inset-0 bg-gradient-to-br from-background via-background to-background/95 pointer-events-none" />
 
       <main>
-        <HeroSection />
-        <FeaturesSection />
-        <StatsSection />
-        <CTASection />
+        <IndianHeroSection />
+        <IndianAboutSection />
+        <ComprehensiveServicesSection />
+        <SimpleAnimation type="fade" delay={0.2}>
+          <CodeTypingAnimation />
+        </SimpleAnimation>
+        <TechnologiesGridSection />
+        <AnalyticsSection />
+        <FinalStatsSection />
+        <EnhancedCTASection />
       </main>
 
       <Footer />

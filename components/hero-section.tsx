@@ -50,28 +50,9 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-[var(--neon-cyan)]/10 via-transparent to-[var(--neon-green)]/10 animate-pulse" />
       </div>
 
-      {/* Floating geometric shapes */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-20 h-20 border border-[var(--neon-cyan)]/20 rounded-lg"
-            style={{
-              left: `${20 + i * 15}%`,
-              top: `${20 + (i % 2) * 40}%`,
-            }}
-            animate={{
-              rotate: [0, 360],
-              scale: [1, 1.1, 1],
-              opacity: [0.2, 0.5, 0.2],
-            }}
-            transition={{
-              duration: 8 + i * 2,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-            }}
-          />
-        ))}
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-primary)]/10 via-transparent to-[var(--brand-secondary)]/10" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
