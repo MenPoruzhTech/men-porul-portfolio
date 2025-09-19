@@ -188,7 +188,7 @@ export function ContactForm() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FloatingLabelSelect
               name="service"
-              label="Service Interested In"
+              label=""
               value={formData.service}
               onChange={handleInputChange}
               onFocus={() => setFocusedField("service")}
@@ -205,7 +205,7 @@ export function ContactForm() {
             />
             <FloatingLabelSelect
               name="budget"
-              label="Project Budget"
+              label=""
               value={formData.budget}
               onChange={handleInputChange}
               onFocus={() => setFocusedField("budget")}
@@ -213,10 +213,10 @@ export function ContactForm() {
               focused={focusedField === "budget"}
               options={[
                 { value: "", label: "Select budget range" },
-                { value: "under-5k", label: "Under $5,000" },
-                { value: "5k-15k", label: "$5,000 - $15,000" },
-                { value: "15k-50k", label: "$15,000 - $50,000" },
-                { value: "50k-plus", label: "$50,000+" },
+                { value: "under-4l", label: "Under ₹4,00,000" },
+                { value: "4l-12l", label: "₹4,00,000 - ₹12,00,000" },
+                { value: "12l-40l", label: "₹12,00,000 - ₹40,00,000" },
+                { value: "40l-plus", label: "₹40,00,000+" },
                 { value: "discuss", label: "Let's discuss" },
               ]}
             />
@@ -240,7 +240,11 @@ export function ContactForm() {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full neon-gradient text-white font-semibold py-3 glow-hover disabled:opacity-50 disabled:cursor-not-allowed relative"
+            className="w-full text-white font-semibold py-3 logo-glow-hover disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, #00CED1, #FF8C00)',
+              borderRadius: '8px'
+            }}
           >
             {isSubmitting ? (
               <div className="flex items-center justify-center">
@@ -299,14 +303,14 @@ function FloatingLabelInput({
           error
             ? "border-red-500/50 focus:border-red-500"
             : focused
-              ? "border-[var(--neon-cyan)] glow-hover"
-              : "border-border hover:border-[var(--neon-cyan)]/50"
+              ? "border-pink-500 glow-hover"
+              : "border-border hover:border-pink-500/50"
         }`}
         required={required}
       />
       <label
         className={`absolute left-4 transition-all duration-200 pointer-events-none ${
-          shouldFloat ? "top-2 text-xs text-[var(--neon-cyan)]" : "top-1/2 -translate-y-1/2 text-muted-foreground"
+          shouldFloat ? "top-2 text-xs text-teal-500" : "top-1/2 -translate-y-1/2 text-muted-foreground"
         }`}
       >
         {label}
@@ -337,7 +341,7 @@ function FloatingLabelSelect({
   focused: boolean
   options: { value: string; label: string }[]
 }) {
-  const hasValue = value.length > 0
+  const hasValue = value.length > 0 && value !== "" && value !== options[0]?.value
   const shouldFloat = focused || hasValue
 
   return (
@@ -348,25 +352,38 @@ function FloatingLabelSelect({
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}
-        className={`w-full px-4 pt-6 pb-2 glass-card rounded-lg border-2 transition-all duration-200 bg-transparent focus:outline-none appearance-none ${
-          focused ? "border-[var(--neon-cyan)] glow-hover" : "border-border hover:border-[var(--neon-cyan)]/50"
+        className={`w-full px-4 pt-7 pb-3 glass-card rounded-lg border-2 transition-all duration-200 bg-background focus:outline-none appearance-none cursor-pointer ${
+          focused ? "border-teal-500 glow-hover" : "border-border hover:border-teal-500/50"
         }`}
       >
-        {options.map((option) => (
-          <option key={option.value} value={option.value} className="bg-background text-foreground">
+        {options.map((option, index) => (
+          <option 
+            key={option.value} 
+            value={option.value} 
+            disabled={index === 0}
+            className={`py-2 ${
+              index === 0 
+                ? "bg-background text-muted-foreground" 
+                : "bg-background text-foreground"
+            }`}
+          >
             {option.label}
           </option>
         ))}
       </select>
       <label
         className={`absolute left-4 transition-all duration-200 pointer-events-none ${
-          shouldFloat ? "top-2 text-xs text-[var(--neon-cyan)]" : "top-1/2 -translate-y-1/2 text-muted-foreground"
+          shouldFloat 
+            ? "top-2 text-xs text-teal-500 font-medium" 
+            : "top-1/2 -translate-y-1/2 text-muted-foreground text-sm"
         }`}
       >
         {label}
       </label>
       <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-        <div className="w-2 h-2 border-r-2 border-b-2 border-muted-foreground transform rotate-45" />
+        <svg className="w-4 h-4 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
       </div>
     </div>
   )
@@ -412,14 +429,14 @@ function FloatingLabelTextarea({
           error
             ? "border-red-500/50 focus:border-red-500"
             : focused
-              ? "border-[var(--neon-cyan)] glow-hover"
-              : "border-border hover:border-[var(--neon-cyan)]/50"
+              ? "border-pink-500 glow-hover"
+              : "border-border hover:border-pink-500/50"
         }`}
         required={required}
       />
       <label
         className={`absolute left-4 transition-all duration-200 pointer-events-none ${
-          shouldFloat ? "top-2 text-xs text-[var(--neon-cyan)]" : "top-6 text-muted-foreground"
+          shouldFloat ? "top-2 text-xs text-teal-500" : "top-6 text-muted-foreground"
         }`}
       >
         {label}

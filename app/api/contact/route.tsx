@@ -11,16 +11,40 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
     }
 
-    // Create transporter
-    const transporter = nodemailer.createTransporter({
-      host: process.env.EMAIL_HOST || "smtp.gmail.com",
+    console.log("Date:", process.env.EMAIL_HOST, process.env.EMAIL_PORT, process.env.EMAIL_USER, process.env.EMAIL_PASS)
+
+    // Test SMTP connection first
+    console.log("Testing SMTP connection...")
+
+    // Create transporter with better timeout settings
+    const transporter = nodemailer.createTransport({
+      host: process.env.EMAIL_HOST || "smtp.hostinger.com",
       port: Number.parseInt(process.env.EMAIL_PORT || "587"),
-      secure: false,
+      secure: true, // true for 465, false for other ports
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+      tls: {
+        // Do not fail on invalid certs
+        rejectUnauthorized: false
+      },
+      connectionTimeout: 60000, // 60 seconds
+      greetingTimeout: 30000,   // 30 seconds
+      socketTimeout: 60000,     // 60 seconds
+      pool: true,
+      maxConnections: 1,
+      maxMessages: 3
     })
+
+    // Verify connection
+    try {
+      await transporter.verify()
+      console.log("SMTP connection verified successfully!")
+    } catch (verifyError) {
+      console.error("SMTP connection verification failed:", verifyError)
+      throw new Error(`SMTP connection failed: ${verifyError.message}`)
+    }
 
     // Email content
     const htmlContent = `
@@ -86,7 +110,7 @@ export async function POST(request: NextRequest) {
             <p>In the meantime, feel free to explore our portfolio and learn more about our services on our website.</p>
             
             <div style="text-align: center; margin: 30px 0;">
-              <a href="https://menporuzh.tech" style="background: linear-gradient(135deg, #00c9ff, #92fe9d); color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">Visit Our Website</a>
+              <a href="https://menporuzhtech.com" style="background: linear-gradient(135deg, #00c9ff, #92fe9d); color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">Visit Our Website</a>
             </div>
             
             <p>Best regards,<br>The MenPoruzhTech Team</p>
@@ -102,6 +126,16 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ message: "Email sent successfully" }, { status: 200 })
   } catch (error) {
     console.error("Error sending email:", error)
-    return NextResponse.json({ error: "Failed to send email" }, { status: 500 })
+    
+    // More detailed error logging
+    if (error instanceof Error) {
+      console.error("Error message:", error.message)
+      console.error("Error code:", (error as any).code)
+    }
+    
+    return NextResponse.json({ 
+      error: "Failed to send email", 
+      details: process.env.NODE_ENV === 'development' ? error.message : undefined 
+    }, { status: 500 })
   }
 }

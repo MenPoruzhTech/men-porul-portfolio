@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Github, Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
+import { ThemeLogo } from "@/components/theme-logo"
 
 const socialLinks = [
   { icon: Github, href: "#", label: "GitHub" },
@@ -22,7 +22,7 @@ const quickLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-background border-t border-border/50">
+    <footer className="bg-background border-t border-orange-500/20 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -34,15 +34,14 @@ export function Footer() {
               className="space-y-4"
             >
               <div className="flex items-center space-x-3">
-                <div className="relative w-8 h-8 logo-glow">
-                  <Image
-                    src="/BG-REMOVED-LOGO.png"
+                <div className="logo-glow">
+                  <ThemeLogo 
+                    width={32} 
+                    height={32} 
                     alt="MenPoruzhTech Logo"
-                    fill
-                    className="object-contain"
                   />
                 </div>
-                <h3 className="text-2xl font-bold brand-text">MenPoruzhTech</h3>
+                <h3 className="text-2xl font-bold logo-text">MenPoruzhTech</h3>
               </div>
               <p className="text-muted-foreground max-w-md">
                 Leading technology company specializing in innovative solutions, web development, mobile apps, and
@@ -51,15 +50,15 @@ export function Footer() {
               <div className="space-y-2">
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <MapPin className="h-4 w-4" />
-                  <span>123 Tech Street, Innovation City, IC 12345</span>
+                  <span>Saravanampatti, Coimbatore, Tamil Nadu, India</span>
                 </div>
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <Phone className="h-4 w-4" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+91 63790 02566 / +91 94898 79627</span>
                 </div>
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <Mail className="h-4 w-4" />
-                  <span>contact@menporuzh.tech</span>
+                  <span>contact@menporuzhtech.com</span>
                 </div>
               </div>
             </motion.div>
@@ -125,8 +124,7 @@ export function Footer() {
           className="mt-8 pt-8 border-t border-border/50 text-center text-sm text-muted-foreground"
         >
           <p>
-            © {new Date().getFullYear()} MenPoruzhTech. All rights reserved. Built with ❤️ using Next.js and Framer
-            Motion.
+            © {new Date().getFullYear()} MenPoruzhTech. All rights reserved.
           </p>
         </motion.div>
       </div>

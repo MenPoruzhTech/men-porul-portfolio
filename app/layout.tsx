@@ -5,6 +5,7 @@ import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ScrollToTop } from "@/components/scroll-to-top"
+import { FloatingThemeToggle } from "@/components/floating-theme-toggle"
 import { LoadingProvider } from "@/components/loading-provider"
 import { Suspense } from "react"
 import "./globals.css"
@@ -17,11 +18,19 @@ export const metadata: Metadata = {
   authors: [{ name: "MenPoruzhTech" }],
   creator: "MenPoruzhTech",
   publisher: "MenPoruzhTech",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.ico", type: "image/x-icon" }
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   openGraph: {
     title: "MenPoruzhTech - Innovative Technology Solutions",
     description:
       "Leading technology company specializing in innovative solutions, web development, mobile apps, and digital transformation services.",
-    url: "https://menporuzh.tech",
+    url: "https://menporuzhtech.com",
     siteName: "MenPoruzhTech",
     type: "website",
   },
@@ -58,6 +67,7 @@ export default function RootLayout({
                 <LoadingProvider>
                   {children}
                   <ScrollToTop />
+                  <FloatingThemeToggle />
                 </LoadingProvider>
               </ThemeProvider>
             </Suspense>

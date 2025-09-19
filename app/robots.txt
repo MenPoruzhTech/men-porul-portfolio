@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://menporuzh.tech/sitemap.xml
+Sitemap: https://menporuzhtech.com/sitemap.xml

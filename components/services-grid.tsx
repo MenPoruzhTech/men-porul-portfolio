@@ -28,7 +28,7 @@ const services = [
       "We create responsive, scalable web applications using the latest frameworks like React, Next.js, and Vue.js. Our solutions are optimized for performance, SEO, and user experience.",
     features: ["Responsive Design", "SEO Optimization", "Performance Tuning", "Modern Frameworks"],
     technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-    price: "Starting from $5,000",
+    price: "Starting from ₹4,00,000",
   },
   {
     id: "mobile-development",
@@ -39,7 +39,7 @@ const services = [
       "Build powerful mobile apps for iOS and Android using React Native, Flutter, or native technologies. We focus on creating intuitive user experiences and robust functionality.",
     features: ["Cross-platform", "Native Performance", "App Store Optimization", "Push Notifications"],
     technologies: ["React Native", "Flutter", "Swift", "Kotlin"],
-    price: "Starting from $8,000",
+    price: "Starting from ₹6,50,000",
   },
   {
     id: "digital-solutions",
@@ -50,7 +50,7 @@ const services = [
       "Transform your business processes with our digital solutions. We help modernize legacy systems, implement automation, and create digital workflows.",
     features: ["Process Automation", "Legacy Modernization", "Digital Workflows", "System Integration"],
     technologies: ["APIs", "Microservices", "Cloud Platforms", "Automation Tools"],
-    price: "Custom Pricing",
+    price: "Custom Pricing (₹5,00,000+)",
   },
   {
     id: "database-solutions",
@@ -61,7 +61,7 @@ const services = [
       "Design and optimize databases for maximum performance and scalability. We work with SQL and NoSQL databases to meet your specific requirements.",
     features: ["Database Design", "Performance Optimization", "Data Migration", "Backup Solutions"],
     technologies: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch"],
-    price: "Starting from $3,000",
+    price: "Starting from ₹2,50,000",
   },
   {
     id: "cloud-services",
@@ -72,7 +72,7 @@ const services = [
       "Migrate to the cloud or optimize your existing cloud infrastructure. We provide deployment, scaling, and maintenance services for major cloud platforms.",
     features: ["Cloud Migration", "Auto Scaling", "DevOps", "Monitoring"],
     technologies: ["AWS", "Google Cloud", "Azure", "Docker"],
-    price: "Starting from $2,000",
+    price: "Starting from ₹1,50,000",
   },
   {
     id: "security",
@@ -83,7 +83,7 @@ const services = [
       "Protect your applications and data with our security solutions. We implement best practices for authentication, authorization, and data encryption.",
     features: ["Security Audits", "Penetration Testing", "Data Encryption", "Compliance"],
     technologies: ["OAuth", "JWT", "SSL/TLS", "Security Frameworks"],
-    price: "Starting from $4,000",
+    price: "Starting from ₹3,25,000",
   },
   {
     id: "performance",
@@ -94,7 +94,7 @@ const services = [
       "Optimize your applications for maximum speed and efficiency. We analyze performance bottlenecks and implement solutions to improve user experience.",
     features: ["Speed Optimization", "Caching Strategies", "CDN Setup", "Code Optimization"],
     technologies: ["CDNs", "Caching", "Performance Tools", "Monitoring"],
-    price: "Starting from $2,500",
+    price: "Starting from ₹2,00,000",
   },
   {
     id: "ui-ux",
@@ -105,7 +105,7 @@ const services = [
       "Create stunning user interfaces and experiences that engage your users. Our design process focuses on usability, accessibility, and visual appeal.",
     features: ["User Research", "Wireframing", "Prototyping", "Design Systems"],
     technologies: ["Figma", "Adobe XD", "Sketch", "InVision"],
-    price: "Starting from $3,500",
+    price: "Starting from ₹2,90,000",
   },
   {
     id: "seo",
@@ -116,7 +116,7 @@ const services = [
       "Improve your online visibility with our SEO and digital marketing services. We help you rank higher in search results and reach your target audience.",
     features: ["Keyword Research", "On-page SEO", "Content Strategy", "Analytics"],
     technologies: ["Google Analytics", "SEO Tools", "Content Management", "Social Media"],
-    price: "Starting from $1,500",
+    price: "Starting from ₹1,25,000",
   },
   {
     id: "analytics",
@@ -127,7 +127,7 @@ const services = [
       "Turn your data into actionable insights with our analytics solutions. We help you track performance, understand user behavior, and make data-driven decisions.",
     features: ["Data Visualization", "Custom Dashboards", "Reporting", "Predictive Analytics"],
     technologies: ["Google Analytics", "Tableau", "Power BI", "Custom Solutions"],
-    price: "Starting from $4,500",
+    price: "Starting from ₹3,75,000",
   },
   {
     id: "support",
@@ -138,7 +138,7 @@ const services = [
       "Keep your applications running smoothly with our support and maintenance services. We provide 24/7 monitoring, updates, and technical support.",
     features: ["24/7 Monitoring", "Regular Updates", "Bug Fixes", "Technical Support"],
     technologies: ["Monitoring Tools", "Support Systems", "Update Management", "Documentation"],
-    price: "Starting from $1,000/month",
+    price: "Starting from ₹85,000/month",
   },
   {
     id: "consulting",
@@ -149,7 +149,7 @@ const services = [
       "Get expert advice on technology strategy, architecture, and implementation. We help you make informed decisions about your technology investments.",
     features: ["Technology Strategy", "Architecture Planning", "Code Reviews", "Best Practices"],
     technologies: ["Various Technologies", "Industry Standards", "Best Practices", "Documentation"],
-    price: "Starting from $200/hour",
+    price: "Starting from ₹1,700/hour",
   },
 ]
 
@@ -218,14 +218,14 @@ function ServiceCard({
       >
         {/* Service Icon and Title */}
         <div className="flex items-center mb-4">
-          <div className="flex items-center justify-center w-12 h-12 rounded-lg neon-gradient mr-4 group-hover:scale-110 transition-transform duration-300">
+          <div className="flex items-center justify-center w-12 h-12 rounded-lg logo-gradient mr-4 group-hover:scale-110 transition-transform duration-300">
             <service.icon className="w-6 h-6 text-white" />
           </div>
           <div>
-            <h3 className="text-xl font-semibold group-hover:text-[var(--neon-cyan)] transition-colors">
+            <h3 className="text-xl font-semibold group-hover:text-teal-500 transition-colors">
               {service.title}
             </h3>
-            <p className="text-sm text-[var(--neon-cyan)] font-medium">{service.price}</p>
+            <p className="text-sm text-orange-500 font-medium">{service.price}</p>
           </div>
         </div>
 
@@ -271,7 +271,15 @@ function ServiceCard({
             </div>
 
             {/* CTA Button */}
-            <Button className="w-full neon-gradient text-white font-semibold glow-hover">Get Started</Button>
+            <Button 
+              className="w-full text-white font-semibold logo-glow-hover overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, #00CED1, #FF8C00)',
+                borderRadius: '8px'
+              }}
+            >
+              Get Started
+            </Button>
           </div>
         </motion.div>
 

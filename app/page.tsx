@@ -18,8 +18,9 @@ export default function HomePage() {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Subtle background gradient */}
-      <div className="fixed inset-0 bg-gradient-to-br from-background via-background to-background/95 pointer-events-none" />
+      {/* Logo-inspired background gradient */}
+      <div className="fixed inset-0 bg-gradient-to-br from-background via-background/98 to-background/95 pointer-events-none" style={{ height: 'calc(100vh - 200px)' }} />
+      <div className="fixed inset-0 bg-gradient-to-br from-teal-500/5 to-orange-500/5 pointer-events-none" style={{ height: 'calc(100vh - 200px)' }} />
 
       <main>
         <IndianHeroSection />

@@ -3,88 +3,57 @@
 import { motion } from "framer-motion"
 import { Target, Users, Lightbulb, Award, ArrowRight, MapPin, Globe, Building } from "lucide-react"
 import Link from "next/link"
-import { SimpleAnimation, StaggeredSimple } from "@/components/simple-animations"
+import { SimpleAnimation } from "@/components/simple-animations"
+import { MobileResponsiveStaggered } from "@/components/mobile-responsive-animation"
 
 const missionPoints = [
   {
     icon: Target,
     title: "Our Vision",
-    description: "To be India's leading technology partner, driving digital transformation across the subcontinent.",
+    description: "To become India's most trusted startup technology partner, helping emerging businesses compete globally.",
     color: "from-[var(--brand-primary)] to-[var(--brand-secondary)]"
   },
   {
     icon: Users,
     title: "Our Mission",
-    description: "Empowering Indian businesses with world-class technology solutions that scale globally.",
+    description: "Empowering Indian startups and growing businesses with affordable, scalable technology solutions.",
     color: "from-[var(--brand-secondary)] to-[var(--brand-accent)]"
   },
   {
     icon: Lightbulb,
     title: "Our Values",
-    description: "Innovation, excellence, and commitment to India's technological advancement.",
+    description: "Agility, innovation, and partnership - growing together with our clients in the startup ecosystem.",
     color: "from-[var(--brand-accent)] to-[var(--brand-highlight)]"
   },
   {
     icon: Award,
     title: "Our Promise",
-    description: "Delivering exceptional results that exceed expectations and create lasting impact.",
+    description: "Delivering startup-friendly solutions that provide maximum value and growth potential.",
     color: "from-[var(--brand-highlight)] to-[var(--brand-primary)]"
   }
 ]
 
 const indianOffices = [
   {
-    city: "Mumbai",
-    state: "Maharashtra",
+    city: "Coimbatore",
+    state: "Tamil Nadu",
     icon: Building,
-    description: "Our headquarters in the financial capital of India"
+    description: "Our main development center in the heart of Tamil Nadu"
   },
   {
-    city: "Bangalore",
-    state: "Karnataka", 
+    city: "Remote Team",
+    state: "Pan India", 
     icon: Globe,
-    description: "Tech hub office in India's Silicon Valley"
+    description: "Distributed team working across India's tech cities"
   },
   {
-    city: "Delhi",
-    state: "NCR",
+    city: "Future Expansion",
+    state: "Coming Soon",
     icon: MapPin,
-    description: "Strategic presence in the national capital region"
+    description: "Planning strategic expansion to major Indian cities"
   }
 ]
 
-const timeline = [
-  {
-    year: "2020",
-    title: "Company Founded",
-    description: "Started with a vision to revolutionize technology solutions in India",
-    icon: "🚀"
-  },
-  {
-    year: "2021",
-    title: "First Major Project",
-    description: "Delivered our first enterprise-level solution for an Indian startup",
-    icon: "💡"
-  },
-  {
-    year: "2022",
-    title: "Team Expansion",
-    description: "Grew to 50+ talented Indian professionals across three cities",
-    icon: "👥"
-  },
-  {
-    year: "2023",
-    title: "AI Integration",
-    description: "Launched AI-powered solutions for Indian businesses",
-    icon: "🤖"
-  },
-  {
-    year: "2024",
-    title: "Global Reach",
-    description: "Expanded services to serve Indian companies going global",
-    icon: "🌍"
-  }
-]
 
 export function IndianAboutSection() {
   return (
@@ -97,13 +66,14 @@ export function IndianAboutSection() {
               About MenPoruzhTech
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              We're passionate about creating technology solutions that make a difference in India. Our journey is built on innovation, excellence, and unwavering commitment to India's digital transformation.
+              We're a passionate startup team creating innovative technology solutions for India's growing digital economy. 
+              As a young company, we bring fresh energy, agile development, and cost-effective solutions to help businesses thrive.
             </p>
           </div>
         </SimpleAnimation>
 
         {/* Mission Points Grid */}
-        <StaggeredSimple
+        <MobileResponsiveStaggered
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20"
           staggerDelay={0.1}
           type="scale"
@@ -142,23 +112,23 @@ export function IndianAboutSection() {
             </div>
             </motion.div>
           ))}
-        </StaggeredSimple>
+        </MobileResponsiveStaggered>
 
         {/* Indian Offices */}
         <SimpleAnimation type="fade" delay={0.4}>
           <div className="mb-16">
             <h3 className="text-3xl font-bold text-center brand-text mb-12">
-              Our Indian Presence
+              Our Growing Presence
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {indianOffices.map((office, index) => (
                 <motion.div
                   key={office.city}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
                   whileHover={{ 
                     y: -5,
                     scale: 1.02
@@ -191,68 +161,7 @@ export function IndianAboutSection() {
           </div>
         </SimpleAnimation>
 
-        {/* Animated Timeline */}
-        <SimpleAnimation type="fade" delay={0.6}>
-          <div className="mb-16">
-            <h3 className="text-3xl font-bold text-center brand-text mb-12">
-              Our Journey
-            </h3>
-            
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[var(--brand-primary)] to-[var(--brand-secondary)] rounded-full" />
-              
-              {/* Timeline items */}
-              <div className="space-y-12">
-                {timeline.map((item, index) => (
-                  <motion.div
-                    key={item.year}
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ 
-                      duration: 0.8, 
-                      delay: index * 0.2,
-                      ease: "easeOut"
-                    }}
-                    className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
-                  >
-                    <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
-                      <motion.div
-                        whileHover={{ 
-                          scale: 1.05,
-                          y: -5
-                        }}
-                        className="glass-card p-6 rounded-xl hover:brand-glow-hover transition-all duration-300"
-                      >
-                        <div className="flex items-center space-x-3 mb-3">
-                          <span className="text-2xl">{item.icon}</span>
-                          <span className="text-sm font-medium text-[var(--brand-primary)]">
-                            {item.year}
-                          </span>
-                        </div>
-                        <h4 className="text-lg font-semibold mb-2 text-foreground">{item.title}</h4>
-                        <p className="text-muted-foreground text-sm">{item.description}</p>
-                      </motion.div>
-                    </div>
-                    
-                    {/* Timeline dot */}
-                    <motion.div
-                      className="relative z-10 w-4 h-4 bg-[var(--brand-primary)] rounded-full border-4 border-background"
-                      whileHover={{ 
-                        scale: 1.5,
-                        boxShadow: "0 0 20px var(--brand-primary)"
-                      }}
-                      transition={{ duration: 0.3 }}
-                    />
-                    
-                    <div className="w-1/2" />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </SimpleAnimation>
+
 
         {/* Call to Action */}
         <SimpleAnimation type="scale" delay={0.8}>
@@ -266,7 +175,11 @@ export function IndianAboutSection() {
             >
               <Link
                 href="/about"
-                className="inline-flex items-center px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 bg-[var(--brand-primary)] text-white hover:bg-[var(--brand-primary)]/90"
+                className="inline-flex items-center px-8 py-4 font-semibold text-lg transition-all duration-300 text-white hover:opacity-90 overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, #00CED1, #FF8C00)',
+                  borderRadius: '9999px'
+                }}
               >
                 <span>Learn More About Us</span>
                 <ArrowRight className="ml-2 w-5 h-5" />

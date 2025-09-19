@@ -29,23 +29,23 @@ export function ContactInfo() {
           {
             icon: Mail,
             title: "Email",
-            value: "contact@menporuzh.tech",
+            value: "contact@menporuzhtech.com",
             description: "Drop us a line anytime",
-            action: "mailto:contact@menporuzh.tech",
+            action: "mailto:contact@menporuzhtech.com",
           },
           {
             icon: Phone,
             title: "Phone",
-            value: "+1 (555) 123-4567",
-            description: "Call us during business hours",
-            action: "tel:+15551234567",
+            value: "+91 63790 02566",
+            description: "Call us during business hours (IST)",
+            action: "tel:+916379002566",
           },
           {
             icon: MapPin,
             title: "Office",
-            value: "123 Tech Street, Innovation City, IC 12345",
-            description: "Visit our headquarters",
-            action: "https://maps.google.com",
+            value: "Coimbatore, Tamil Nadu, India",
+            description: "Visit our development center",
+            action: "https://maps.google.com/maps?q=Coimbatore+Tamil+Nadu+India",
           },
         ].map((contact, index) => (
           <motion.div
@@ -88,11 +88,11 @@ export function ContactInfo() {
         <div className="space-y-2 text-sm">
           <div className="flex justify-between">
             <span className="text-muted-foreground">Monday - Friday</span>
-            <span>8:00 AM - 6:00 PM</span>
+            <span>9:00 AM - 6:00 PM (IST)</span>
           </div>
           <div className="flex justify-between">
             <span className="text-muted-foreground">Saturday</span>
-            <span>9:00 AM - 4:00 PM</span>
+            <span>10:00 AM - 4:00 PM (IST)</span>
           </div>
           <div className="flex justify-between">
             <span className="text-muted-foreground">Sunday</span>
