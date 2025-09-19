@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Code, Terminal, FileCode, Zap } from "lucide-react"
-import { StaggeredAnimation, ScaleAnimation } from "@/components/scroll-animations"
+import { StaggeredSimple } from "@/components/simple-animations"
 
 const codeBlocks = [
   {
@@ -62,14 +62,18 @@ export function CodeTypingAnimation() {
         </motion.div>
 
         {/* Code Blocks Grid */}
-        <StaggeredAnimation
+        <StaggeredSimple
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
           staggerDelay={0.2}
-          direction="up"
-          distance={50}
         >
           {codeBlocks.map((block, index) => (
-            <ScaleAnimation key={block.title} delay={index * 0.1} scale={0.9}>
+            <motion.div
+              key={block.title}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
               <motion.div
                 whileHover={{ 
                   y: -10,
@@ -120,9 +124,9 @@ export function CodeTypingAnimation() {
                   />
                 </div>
               </motion.div>
-            </ScaleAnimation>
+            </motion.div>
           ))}
-        </StaggeredAnimation>
+        </StaggeredSimple>
 
         {/* Bottom Stats */}
         <motion.div

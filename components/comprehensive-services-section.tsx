@@ -58,7 +58,7 @@ const services = [
 
 export function ComprehensiveServicesSection() {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <SimpleAnimation type="fade" delay={0.2}>

@@ -38,22 +38,20 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  /* Indian-inspired color palette for MenPoruzhTech theme */
-  --primary-teal: #00A6A6;
-  --primary-orange: #F08700;
-  --accent-yellow: #EFCA08;
-  --accent-light-blue: #BBDEF0;
-  --accent-light-orange: #F49F0A;
-  --neon-teal: var(--primary-teal);
-  --neon-orange: var(--primary-orange);
-  --glass-bg: rgba(0, 166, 166, 0.1);
-  --glass-border: rgba(0, 166, 166, 0.2);
-
-  /* Indian-inspired brand colors - Light theme */
-  --brand-primary: var(--primary-teal);
-  --brand-secondary: var(--primary-orange);
-  --brand-accent: var(--accent-yellow);
-  --brand-highlight: var(--accent-light-orange);
+  /* MenPoruzhTech Logo-Inspired Color Palette - Correct Colors */
+  --logo-teal: #00CED1;        /* Primary teal from logo */
+  --logo-orange: #FF8C00;      /* Orange from logo */
+  --logo-yellow: #FFD700;      /* Yellow from logo */
+  
+  /* Primary brand colors - Teal to Orange gradient */
+  --brand-primary: var(--logo-teal);
+  --brand-secondary: var(--logo-orange);
+  --brand-accent: var(--logo-yellow);
+  --brand-highlight: var(--logo-orange);
+  
+  /* Glass effect colors */
+  --glass-bg: rgba(0, 206, 209, 0.1);
+  --glass-border: rgba(0, 206, 209, 0.2);
   
   /* Light theme specific colors */
   --text-primary: #1a1a1a;
@@ -99,14 +97,14 @@
   --sidebar-ring: oklch(0.439 0 0);
 
   /* Dark mode glass effect colors */
-  --glass-bg: rgba(0, 166, 166, 0.15);
-  --glass-border: rgba(0, 166, 166, 0.3);
+  --glass-bg: rgba(0, 206, 209, 0.15);
+  --glass-border: rgba(0, 206, 209, 0.3);
   
-  /* Enhanced dark mode brand colors */
-  --brand-primary: #00D4D4; /* Brighter teal for dark mode */
-  --brand-secondary: #FF9A00; /* Brighter orange for dark mode */
-  --brand-accent: #FFD700; /* Brighter yellow for dark mode */
-  --brand-highlight: #FFB84D; /* Brighter light orange for dark mode */
+  /* Enhanced dark mode brand colors - brighter versions */
+  --brand-primary: #00E6E6; /* Bright Teal for dark mode */
+  --brand-secondary: #FFA500; /* Bright Orange for dark mode */
+  --brand-accent: #FFFF00; /* Bright Yellow for dark mode */
+  --brand-highlight: #FFA500; /* Bright Orange for dark mode */
   
   /* Dark theme specific colors */
   --text-primary: #ffffff;
@@ -176,30 +174,31 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, var(--neon-cyan), var(--neon-green));
+    background: linear-gradient(45deg, var(--logo-teal), var(--logo-orange));
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, var(--neon-green), var(--neon-cyan));
+    background: linear-gradient(45deg, var(--logo-orange), var(--logo-yellow));
   }
 }
 
 /* Custom utility classes for neon effects and glassmorphism */
 @layer utilities {
+  /* Elegant two-color gradients matching logo style */
   .neon-gradient {
-    background: linear-gradient(135deg, var(--neon-teal), var(--neon-orange));
+    background: linear-gradient(135deg, var(--logo-teal), var(--logo-orange));
   }
 
   .neon-text {
-    background: linear-gradient(135deg, var(--neon-teal), var(--neon-orange));
+    background: linear-gradient(135deg, var(--logo-teal), var(--logo-orange));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .brand-gradient {
-    background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary), var(--brand-accent));
+    background: linear-gradient(135deg, var(--logo-teal), var(--logo-orange));
   }
 
   .brand-text {
@@ -208,6 +207,31 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: var(--brand-primary); /* Fallback for browsers that don't support background-clip */
+  }
+
+  .logo-gradient {
+    background: linear-gradient(135deg, var(--logo-teal), var(--logo-orange));
+  }
+
+  .logo-text {
+    background: linear-gradient(135deg, var(--logo-teal), var(--logo-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: var(--brand-primary); /* Fallback */
+  }
+
+  /* Alternative gradient combinations */
+  .gradient-teal-orange {
+    background: linear-gradient(135deg, var(--logo-teal), var(--logo-orange));
+  }
+
+  .gradient-orange-yellow {
+    background: linear-gradient(135deg, var(--logo-orange), var(--logo-yellow));
+  }
+
+  .gradient-teal-yellow {
+    background: linear-gradient(135deg, var(--logo-teal), var(--logo-yellow));
   }
 
   .logo-glow {
@@ -227,12 +251,17 @@
   }
 
   .glow-hover:hover {
-    box-shadow: 0 0 30px rgba(0, 201, 255, 0.3), 0 0 60px rgba(146, 254, 157, 0.2);
+    box-shadow: 0 0 30px rgba(0, 206, 209, 0.3), 0 0 60px rgba(255, 140, 0, 0.2);
     transform: translateY(-2px);
   }
 
   .brand-glow-hover:hover {
     box-shadow: 0 0 20px var(--brand-primary), 0 0 40px var(--brand-secondary);
+    transform: translateY(-2px);
+  }
+
+  .logo-glow-hover:hover {
+    box-shadow: 0 0 20px var(--logo-teal), 0 0 40px var(--logo-orange);
     transform: translateY(-2px);
   }
 
@@ -301,10 +330,10 @@
 
 @keyframes glow {
   from {
-    box-shadow: 0 0 20px rgba(0, 201, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 206, 209, 0.2);
   }
   to {
-    box-shadow: 0 0 30px rgba(0, 201, 255, 0.4), 0 0 40px rgba(146, 254, 157, 0.2);
+    box-shadow: 0 0 30px rgba(0, 206, 209, 0.4), 0 0 40px rgba(255, 140, 0, 0.2);
   }
 }
 

@@ -15,9 +15,9 @@ const socialLinks = [
 export function EnhancedCTASection() {
   return (
     <section className="py-20 relative overflow-hidden">
-      {/* Background */}
+      {/* Logo-inspired Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-background">
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-primary)]/5 via-transparent to-[var(--brand-secondary)]/5" />
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-500/10 to-orange-500/10" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,7 +32,7 @@ export function EnhancedCTASection() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <span className="text-foreground">Ready to Transform Your </span>
-              <span className="brand-text">Digital Presence?</span>
+              <span className="logo-text">Digital Presence?</span>
             </motion.h2>
 
             {/* Description */}
@@ -49,14 +49,19 @@ export function EnhancedCTASection() {
                   whileHover={{ 
                     scale: 1.05,
                     y: -2,
-                    boxShadow: "0 0 30px var(--brand-primary)"
+                    boxShadow: "0 0 30px rgba(0, 206, 209, 0.4), 0 0 60px rgba(255, 140, 0, 0.2)",
+                    borderRadius: '9999px'
                   }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.2 }}
                 >
                   <Link
                     href="/contact"
-                    className="inline-flex items-center px-10 py-5 rounded-full font-semibold text-xl transition-all duration-300 bg-[var(--brand-primary)] text-white hover:bg-[var(--brand-primary)]/90"
+                    className="inline-flex items-center px-10 py-5 font-semibold text-xl transition-all duration-300 text-white hover:opacity-90 overflow-hidden"
+                    style={{
+                      background: 'linear-gradient(135deg, #00CED1, #FF8C00)',
+                      borderRadius: '9999px'
+                    }}
                   >
                     <span>Start Your Project</span>
                     <ArrowRight className="ml-3 w-6 h-6" />
@@ -66,14 +71,19 @@ export function EnhancedCTASection() {
                 <motion.div
                   whileHover={{ 
                     scale: 1.05,
-                    y: -2
+                    y: -2,
+                    boxShadow: "0 0 20px rgba(0, 206, 209, 0.3), 0 0 40px rgba(255, 140, 0, 0.2)",
+                    borderRadius: '9999px'
                   }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.2 }}
                 >
                   <Link
                     href="/portfolio"
-                    className="inline-flex items-center px-10 py-5 rounded-full font-semibold text-xl transition-all duration-300 border-2 border-[var(--brand-primary)] text-[var(--brand-primary)] hover:bg-[var(--brand-primary)] hover:text-white"
+                    className="inline-flex items-center px-10 py-5 font-semibold text-xl transition-all duration-300 border-2 border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white overflow-hidden"
+                    style={{
+                      borderRadius: '9999px'
+                    }}
                   >
                     <Play className="mr-3 w-6 h-6" />
                     <span>View Portfolio</span>

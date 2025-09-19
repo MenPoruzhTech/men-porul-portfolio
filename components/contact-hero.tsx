@@ -17,8 +17,8 @@ export function ContactHero() {
             Get In <span className="neon-text">Touch</span>
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Ready to start your next project? We'd love to hear from you. Send us a message and we'll respond as soon as
-            possible.
+            Ready to start your next project? As a startup, we're excited to work with you and grow together. 
+            Send us a message and we'll respond quickly with startup-friendly solutions.
           </p>
         </motion.div>
 
@@ -34,14 +34,14 @@ export function ContactHero() {
             {
               icon: Phone,
               title: "Call Us",
-              info: "+1 (555) 123-4567",
-              description: "Mon-Fri from 8am to 6pm",
+              info: "+91 63790 02566",
+              description: "Mon-Fri from 9am to 6pm IST",
             },
             {
               icon: MapPin,
               title: "Visit Us",
-              info: "123 Tech Street, Innovation City",
-              description: "Our office location",
+              info: "Coimbatore, Tamil Nadu",
+              description: "Our development center",
             },
             {
               icon: Clock,

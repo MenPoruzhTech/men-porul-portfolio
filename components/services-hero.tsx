@@ -17,18 +17,18 @@ export function ServicesHero() {
             Our <span className="neon-text">Services</span>
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            We offer comprehensive technology solutions designed to transform your business and accelerate your digital
-            journey. From concept to deployment, we've got you covered.
+            We offer startup-friendly technology solutions designed to help your business grow and scale efficiently. 
+            From MVP development to full-scale deployment, we provide cost-effective solutions that deliver results.
           </p>
         </motion.div>
 
         {/* Service highlights */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { icon: Code, label: "Web Development", count: "50+" },
-            { icon: Smartphone, label: "Mobile Apps", count: "30+" },
-            { icon: Globe, label: "Digital Solutions", count: "40+" },
-            { icon: Zap, label: "Integrations", count: "25+" },
+            { icon: Code, label: "Web Development", count: "Growing" },
+            { icon: Smartphone, label: "Mobile Apps", count: "Growing" },
+            { icon: Globe, label: "Digital Solutions", count: "Growing" },
+            { icon: Zap, label: "Integrations", count: "Growing" },
           ].map((item, index) => (
             <motion.div
               key={item.label}

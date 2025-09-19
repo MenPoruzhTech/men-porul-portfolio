@@ -2,12 +2,11 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Sun, Moon } from "lucide-react"
-import { useTheme } from "next-themes"
+import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ThemeLogo } from "@/components/theme-logo"
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -20,22 +19,15 @@ const navItems = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
   const pathname = usePathname()
 
   useEffect(() => {
-    setMounted(true)
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark")
-  }
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -44,33 +36,6 @@ export function Navbar() {
     }
   }
 
-  // Don't render theme toggle until mounted to prevent hydration mismatch
-  if (!mounted) {
-    return (
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex-shrink-0">
-              <Link href="/" className="flex items-center space-x-3">
-                <div className="relative w-10 h-10 logo-glow">
-                  <Image
-                    src="/bg-removed-logo.png"
-                    alt="MenPoruzhTech Logo"          
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-                <span className="text-2xl font-bold brand-text hidden sm:block">
-                  MenPoruzhTech
-                </span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-    )
-  }
 
   return (
     <motion.nav
@@ -80,34 +45,34 @@ export function Navbar() {
         scrolled ? "glass-card shadow-lg backdrop-blur-md" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">.
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-22">
           {/* Logo */}
-          <motion.div whileHover={{ scale: 1.05 }} className="flex-shrink-0">
-            <Link href="/" className="flex items-center space-x-3 group">
-              <div className="relative w-10 h-10 logo-glow">
-                <Image
-                  src="/bg-removed-logo.png"
-                  alt="MenPoruzhTech Logo"         
-                  fill
-                  className="object-contain transition-all duration-300 group-hover:scale-110"
-                  priority
-                />
+          <motion.div  className="flex-shrink-0">
+            <Link href="/" className="flex items-center  group">
+              <div className="transition-all ">
+              <ThemeLogo 
+  darkWidth={115} darkHeight={115} 
+  lightWidth={90} lightHeight={90} 
+  alt="MenPoruzhTech Logo"
+  priority
+/>
+
               </div>
-              <span className="text-2xl font-bold brand-text hidden sm:block">
+              <span className="text-2xl font-bold logo-text hidden sm:block">
                 MenPoruzhTech
               </span>
             </Link>
           </motion.div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Right Aligned */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="flex items-baseline space-x-8">
               {navItems.map((item) => (
                 <motion.div key={item.name} className="relative">
                   <Link
                     href={item.href}
-                    className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-[var(--brand-primary)] ${
+                    className={`relative px-3 py-2 text-base font-medium transition-colors duration-200 hover:text-[var(--brand-primary)] ${
                       pathname === item.href ? "brand-text" : "text-foreground"
                     }`}
                   >
@@ -125,46 +90,28 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Theme Toggle & Mobile Menu Button */}
-          <div className="flex items-center space-x-4">
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="ghost" size="icon" onClick={toggleTheme} className="glow-hover relative overflow-hidden">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-foreground hover:text-[var(--brand-primary)]"
+              >
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.div
-                    key={theme}
-                    initial={{ y: -30, opacity: 0, rotate: -90 }}
-                    animate={{ y: 0, opacity: 1, rotate: 0 }}
-                    exit={{ y: 30, opacity: 0, rotate: 90 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    key={isOpen ? "close" : "open"}
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    {theme === "dark" ? (
-                      <Sun className="h-5 w-5 text-yellow-500" />
-                    ) : (
-                      <Moon className="h-5 w-5 text-blue-500" />
-                    )}
+                    {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                   </motion.div>
                 </AnimatePresence>
               </Button>
             </motion.div>
-
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
-                  <AnimatePresence mode="wait" initial={false}>
-                    <motion.div
-                      key={isOpen ? "close" : "open"}
-                      initial={{ rotate: -90, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: 90, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                    </motion.div>
-                  </AnimatePresence>
-                </Button>
-              </motion.div>
-            </div>
           </div>
         </div>
       </div>
@@ -177,7 +124,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden glass-card border-t border-border/50 backdrop-blur-md"
+            className="md:hidden glass-card border-t border-[var(--glass-border)] backdrop-blur-md bg-[var(--glass-bg)]"
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item, index) => (
@@ -190,10 +137,10 @@ export function Navbar() {
                   <Link
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`block px-3 py-2 text-base font-medium transition-colors duration-200 hover:text-[var(--brand-primary)] rounded-lg ${
+                    className={`block px-3 py-2 text-lg font-medium transition-colors duration-200 hover:text-[var(--brand-primary)] rounded-lg ${
                       pathname === item.href
-                        ? "brand-text glass-card"
-                        : "text-foreground hover:glass-card hover:brand-glow-hover"
+                        ? "text-[var(--brand-primary)] bg-[var(--glass-bg)] border border-[var(--glass-border)] font-semibold"
+                        : "text-foreground hover:bg-[var(--glass-bg)] hover:border hover:border-[var(--glass-border)]"
                     }`}
                   >
                     {item.name}

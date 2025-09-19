@@ -2,7 +2,6 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { AboutHero } from "@/components/about-hero"
-import { Timeline } from "@/components/timeline"
 import { TeamSection } from "@/components/team-section"
 import { ValuesSection } from "@/components/values-section"
 
@@ -11,14 +10,12 @@ export default function AboutPage() {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Animated background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--neon-cyan)]/3 via-transparent to-[var(--neon-green)]/3" />
-      </div>
+      {/* Logo-inspired background gradient */}
+      <div className="fixed inset-0 bg-gradient-to-br from-background via-background/98 to-background/95 pointer-events-none" style={{ height: 'calc(100vh - 200px)' }} />
+      <div className="fixed inset-0 bg-gradient-to-br from-teal-500/5 to-orange-500/5 pointer-events-none" style={{ height: 'calc(100vh - 200px)' }} />
 
       <main className="relative z-10">
         <AboutHero />
-        <Timeline />
         <ValuesSection />
         <TeamSection />
       </main>

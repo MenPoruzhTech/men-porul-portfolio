@@ -17,18 +17,18 @@ export function PortfolioHero() {
             Our <span className="neon-text">Portfolio</span>
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Explore our collection of innovative projects that showcase our expertise in creating exceptional digital
-            experiences and cutting-edge technology solutions.
+            Explore our growing portfolio of innovative projects that showcase our startup journey and expertise in creating 
+            exceptional digital experiences with modern technology solutions.
           </p>
         </motion.div>
 
         {/* Portfolio highlights */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { icon: Eye, label: "Projects Delivered", count: "150+" },
-            { icon: Code, label: "Lines of Code", count: "1M+" },
-            { icon: Award, label: "Awards Won", count: "25+" },
-            { icon: Users, label: "Happy Clients", count: "50+" },
+            { icon: Eye, label: "Projects Delivered", count: "Growing" },
+            { icon: Code, label: "Technologies Used", count: "15+" },
+            { icon: Award, label: "Team Members", count: "8+" },
+            { icon: Users, label: "Happy Clients", count: "Growing" },
           ].map((item, index) => (
             <motion.div
               key={item.label}
