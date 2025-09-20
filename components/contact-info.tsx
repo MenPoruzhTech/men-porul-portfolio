@@ -90,40 +90,15 @@ export function ContactInfo() {
             <span className="text-muted-foreground">Monday - Friday</span>
             <span>9:00 AM - 6:00 PM (IST)</span>
           </div>
+      
           <div className="flex justify-between">
-            <span className="text-muted-foreground">Saturday</span>
-            <span>10:00 AM - 4:00 PM (IST)</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="text-muted-foreground">Sunday</span>
+            <span className="text-muted-foreground">Saturday & Sunday</span>
             <span>Closed</span>
           </div>
         </div>
       </motion.div>
 
-      {/* Quick actions */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-        className="space-y-4"
-      >
-        <h3 className="text-lg font-semibold">Prefer Other Ways?</h3>
-        <div className="flex flex-col sm:flex-row gap-3">
-          <Button className="neon-gradient text-white glow-hover flex-1">
-            <MessageCircle className="w-4 h-4 mr-2" />
-            Live Chat
-          </Button>
-          <Button
-            variant="outline"
-            className="border-[var(--neon-cyan)] text-[var(--neon-cyan)] hover:bg-[var(--neon-cyan)] hover:text-white bg-transparent flex-1"
-          >
-            <Calendar className="w-4 h-4 mr-2" />
-            Schedule Call
-          </Button>
-        </div>
-      </motion.div>
+   
     </motion.div>
   )
 }

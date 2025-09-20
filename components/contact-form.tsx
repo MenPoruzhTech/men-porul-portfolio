@@ -6,7 +6,6 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { InlineLoader } from "@/components/loader"
 
 interface FormData {
   name: string
@@ -248,7 +247,8 @@ export function ContactForm() {
           >
             {isSubmitting ? (
               <div className="flex items-center justify-center">
-                <InlineLoader isLoading={true} message="Sending..." />
+                <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                Sending...
               </div>
             ) : (
               <>
