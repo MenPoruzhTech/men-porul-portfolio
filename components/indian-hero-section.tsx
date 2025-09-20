@@ -37,7 +37,7 @@ export function IndianHeroSection() {
                 {/* Subtitle */}
                 <SimpleAnimation type="slide" delay={0.4} direction="up">
                   <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-                    Empowering Indian businesses with cutting-edge technology solutions. From Mumbai to Bangalore, we're transforming ideas into digital reality.
+                   We help businesses bring their digital ideas to life using modern technology, done in a smart, accurate, and effective way.
                   </p>
                 </SimpleAnimation>
 
