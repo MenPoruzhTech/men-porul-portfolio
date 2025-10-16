@@ -62,11 +62,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Head>
-           <meta
-          name="google-site-verification"
-          content="dvNvYuosXb4IvgOiRaAq1sRWcWXyQ8Az21C41vRM3is"
-        />
+      
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
             <Suspense fallback={null}>
               <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange={false}>
@@ -79,7 +75,7 @@ export default function RootLayout({
             </Suspense>
         <Analytics />
       </body>
-      </Head>
+      
     </html>
   )
 }
