@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { MessageSquare, Lightbulb, Code, Rocket, CheckCircle, Users } from "lucide-react"
 
 const processSteps = [
@@ -46,20 +45,14 @@ export function ProcessSection() {
   return (
     <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Our <span className="neon-text">Process</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             We follow a proven methodology to ensure successful project delivery and exceptional results.
           </p>
-        </motion.div>
+        </div>
 
         <div className="relative">
           {/* Process line */}
@@ -67,23 +60,18 @@ export function ProcessSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {processSteps.map((step, index) => (
-              <motion.div
+              <div
                 key={step.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="relative"
+                className="transition-transform duration-300 hover:-translate-y-1 hover:scale-102"
               >
-                <div className="glass-card rounded-xl p-6 glow-hover text-center">
+                <div className="glass-card rounded-xl p-6 glow-hover text-center flex flex-col items-center">
                   {/* Step number */}
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full neon-gradient flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full neon-gradient flex items-center justify-center text-white font-bold text-sm mb-4">
                     {index + 1}
                   </div>
 
                   {/* Icon */}
-                  <div className="flex items-center justify-center w-16 h-16 rounded-full neon-gradient mb-4 mx-auto mt-4">
+                  <div className="flex items-center justify-center w-16 h-16 rounded-full neon-gradient mb-4">
                     <step.icon className="w-8 h-8 text-white" />
                   </div>
 
@@ -94,7 +82,7 @@ export function ProcessSection() {
                     <span className="text-sm text-[var(--neon-cyan)] font-medium">{step.duration}</span>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

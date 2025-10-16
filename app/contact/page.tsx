@@ -5,9 +5,20 @@ import { Footer } from "@/components/footer"
 import { ContactHero } from "@/components/contact-hero"
 import { ContactForm } from "@/components/contact-form"
 import { ContactInfo } from "@/components/contact-info"
+import Layout from "@/components/meta/layout"
 
 export default function ContactPage() {
+  const contactMeta = {
+  title: "Contact MenPoruzhTech – Build Your Next Project",
+  description:
+    "Connect with MenPoruzhTech's full-stack experts for web, SaaS, or app development. Get a free quote and let's turn your vision into reality today.",
+  keywords:
+    "contact web development company, hire full stack developers, saas product consultation, react nextjs developer contact, software development enquiry, hire app developers india, tech partner contact, get project quote menporuzhtech, build website with nextjs, business collaboration web agency, project estimation software company",
+  url: "https://menporuzhtech.com/contact",
+  ogImage: "https://menporuzhtech.com/Logo.png",
+};
   return (
+    <Layout meta={contactMeta}>
     <div className="min-h-screen bg-background">
       <Navbar />
 
@@ -27,5 +38,6 @@ export default function ContactPage() {
 
       <Footer />
     </div>
+    </Layout>
   )
 }

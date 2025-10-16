@@ -1,8 +1,7 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { Briefcase, Users, Calendar, TrendingUp } from "lucide-react"
-import { SimpleAnimation, StaggeredSimple } from "@/components/simple-animations"
+import { StaggeredSimple } from "@/components/simple-animations"
 
 const stats = [
   {
@@ -40,48 +39,27 @@ export function FinalStatsSection() {
           staggerDelay={0.1}
           type="scale"
         >
-          {stats.map((stat, index) => (
-            <motion.div
+          {stats.map((stat) => (
+            <div
               key={stat.label}
-              whileHover={{ 
-                scale: 1.05,
-                y: -5,
-                transition: { duration: 0.3 }
-              }}
-              className="group"
+              className="group transform transition-all duration-300 hover:scale-105 hover:-translate-y-1"
             >
               <div className="glass-card p-8 rounded-xl hover:brand-glow-hover transition-all duration-300 text-center">
-                <motion.div
-                  className={`p-4 rounded-full bg-gradient-to-r ${stat.color} mb-6 inline-block`}
-                  whileHover={{ 
-                    rotate: 360,
-                    scale: 1.1,
-                    transition: { duration: 0.5 }
-                  }}
+                <div
+                  className={`p-4 rounded-full bg-gradient-to-r ${stat.color} mb-6 inline-block transition-transform duration-300 group-hover:scale-110 group-hover:rotate-360`}
                 >
                   <stat.icon className="w-8 h-8 text-white" />
-                </motion.div>
-                
-                <motion.div
-                  className="text-4xl font-bold text-foreground mb-2"
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ 
-                    duration: 0.5, 
-                    delay: index * 0.1 + 0.3,
-                    type: "spring",
-                    stiffness: 100
-                  }}
-                >
+                </div>
+
+                <div className="text-4xl font-bold text-foreground mb-2">
                   {stat.number}
-                </motion.div>
-                
+                </div>
+
                 <p className="text-muted-foreground font-medium">
                   {stat.label}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </StaggeredSimple>
       </div>
