@@ -48,6 +48,13 @@ export default function Layout({ children, meta }: LayoutProps) {
         <meta property="og:image" content={metaData.ogImage} />
         <meta property="og:type" content={metaData.ogType} />
 
+
+          <meta
+          name="google-site-verification"
+          content="dvNvYuosXb4IvgOiRaAq1sRWcWXyQ8Az21C41vRM3is"
+        />
+
+
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={metaData.title} />
