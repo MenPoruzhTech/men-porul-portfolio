@@ -1,19 +1,12 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { 
   Code, 
   Smartphone, 
   Globe, 
   ShoppingCart, 
   Shield, 
-  Wrench,
-  Cloud,
-  Database,
-  Zap,
-  Users,
-  BarChart3,
-  Settings
+  Wrench
 } from "lucide-react"
 import { SimpleAnimation, StaggeredSimple } from "@/components/simple-animations"
 
@@ -78,28 +71,18 @@ export function ComprehensiveServicesSection() {
           staggerDelay={0.1}
           type="scale"
         >
-          {services.map((service, index) => (
-            <motion.div
+          {services.map((service) => (
+            <div
               key={service.title}
-              whileHover={{ 
-                y: -8,
-                scale: 1.02,
-                transition: { duration: 0.3 }
-              }}
-              className="group"
+              className="group transform transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02]"
             >
               <div className="glass-card p-8 rounded-xl hover:brand-glow-hover transition-all duration-300 h-full">
                 <div className="flex flex-col items-center text-center">
-                  <motion.div
-                    className={`p-4 rounded-full bg-gradient-to-r ${service.color} mb-6`}
-                    whileHover={{ 
-                      rotate: 360,
-                      scale: 1.1,
-                      transition: { duration: 0.5 }
-                    }}
+                  <div
+                    className={`p-4 rounded-full bg-gradient-to-r ${service.color} mb-6 transition-transform duration-500 group-hover:rotate-[360deg] group-hover:scale-110`}
                   >
                     <service.icon className="w-10 h-10 text-white" />
-                  </motion.div>
+                  </div>
                   
                   <h3 className="text-xl font-semibold mb-4 text-foreground group-hover:brand-text transition-colors">
                     {service.title}
@@ -110,7 +93,7 @@ export function ComprehensiveServicesSection() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </StaggeredSimple>
       </div>

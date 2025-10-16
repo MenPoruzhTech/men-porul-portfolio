@@ -4,9 +4,20 @@ import { Footer } from "@/components/footer"
 import { AboutHero } from "@/components/about-hero"
 import { TeamSection } from "@/components/team-section"
 import { ValuesSection } from "@/components/values-section"
+import Layout from "@/components/meta/layout"
 
 export default function AboutPage() {
+  const aboutMeta = {
+  title: "About MenPoruzhTech – Scalable Digital Builders",
+  description:
+    "Discover MenPoruzhTech: A Tamil Nadu-based team of full-stack experts crafting robust websites, SaaS, and apps. Join startups who've scaled with us.",
+  keywords:
+    "about menporuzhtech, about software development company, startup tech team, mern stack experts india, digital product agency, full stack engineers, professional web developers, app development agency, company profile menporuzhtech, web company india, software engineering team, web solutions provider",
+  url: "https://menporuzhtech.com/about",
+  ogImage: "https://menporuzhtech.com/Logo.png",
+};
   return (
+    <Layout meta={aboutMeta}>
     <div className="min-h-screen bg-background">
       <Navbar />
 
@@ -17,10 +28,11 @@ export default function AboutPage() {
       <main className="relative z-10">
         <AboutHero />
         <ValuesSection />
-        <TeamSection />
+        {/* <TeamSection /> */}
       </main>
 
       <Footer />
     </div>
+    </Layout>
   )
 }
