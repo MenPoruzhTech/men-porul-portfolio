@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { 
   Code2 as ReactIcon,
   Server as Nodejs,
@@ -9,21 +8,13 @@ import {
   Code as Javascript,
   GitBranch as Git,
   Container as Docker,
-  Cloud as Aws,
   Globe as Nextdotjs,
   Palette as Tailwindcss,
   Database as Mongodb,
   Database as Postgresql,
-  Circle as Redis,
-  Network as Graphql,
-  TestTube as Jest,
-  Bug as Cypress,
-  Zap as Vite,
-  Layers as Kubernetes,
-  Wrench as Terraform,
-  Shield as Jenkins
+  Circle as Redis
 } from "lucide-react"
-import { SimpleAnimation, StaggeredSimple } from "@/components/simple-animations"
+import { StaggeredSimple, SimpleAnimation } from "@/components/simple-animations"
 
 const technologies = [
   { name: "React", icon: ReactIcon, color: "text-blue-400" },
@@ -36,14 +27,8 @@ const technologies = [
   { name: "MongoDB", icon: Mongodb, color: "text-green-500" },
   { name: "PostgreSQL", icon: Postgresql, color: "text-blue-600" },
   { name: "Redis", icon: Redis, color: "text-red-500" },
-  { name: "GraphQL", icon: Graphql, color: "text-pink-500" },
   { name: "Docker", icon: Docker, color: "text-blue-400" },
-  { name: "Kubernetes", icon: Kubernetes, color: "text-blue-600" },
-  { name: "AWS", icon: Aws, color: "text-orange-500" },
-  { name: "Terraform", icon: Terraform, color: "text-purple-500" },
-  { name: "Jenkins", icon: Jenkins, color: "text-blue-500" },
-  { name: "Git", icon: Git, color: "text-orange-400" },
-  { name: "Jest", icon: Jest, color: "text-red-400" }
+  { name: "Git", icon: Git, color: "text-orange-400" }
 ]
 
 export function TechnologiesGridSection() {
@@ -68,22 +53,13 @@ export function TechnologiesGridSection() {
           staggerDelay={0.05}
           type="scale"
         >
-          {technologies.map((tech, index) => (
-            <motion.div
+          {technologies.map((tech) => (
+            <div
               key={tech.name}
-              whileHover={{ 
-                scale: 1.1,
-                y: -5,
-                transition: { duration: 0.2 }
-              }}
-              className="group"
+              className="group transform transition-all duration-300 hover:scale-110 hover:-translate-y-1"
             >
-              <div className="glass-card p-6 rounded-xl text-center hover:brand-glow-hover transition-all duration-300">
-                <motion.div
-                  className="flex flex-col items-center space-y-3"
-                  whileHover={{ rotate: [0, -5, 5, 0] }}
-                  transition={{ duration: 0.3 }}
-                >
+              <div className="relative glass-card p-6 rounded-xl text-center hover:brand-glow-hover transition-all duration-300">
+                <div className="flex flex-col items-center space-y-3">
                   <div className={`p-3 rounded-lg bg-background/50 ${tech.color}`}>
                     <tech.icon className="w-8 h-8" />
                   </div>
@@ -92,15 +68,12 @@ export function TechnologiesGridSection() {
                       {tech.name}
                     </h3>
                   </div>
-                </motion.div>
+                </div>
 
                 {/* Hover effect overlay */}
-                <motion.div
-                  className="absolute inset-0 rounded-xl border border-[var(--brand-primary)]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={false}
-                />
+                <div className="absolute inset-0 rounded-xl border border-[var(--brand-primary)]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </StaggeredSimple>
       </div>

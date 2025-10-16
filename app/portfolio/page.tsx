@@ -5,9 +5,21 @@ import { Footer } from "@/components/footer"
 import { PortfolioHero } from "@/components/portfolio-hero"
 import { PortfolioGrid } from "@/components/portfolio-grid"
 import { PortfolioStats } from "@/components/portfolio-stats"
+import Layout from "@/components/meta/layout"
 
 export default function PortfolioPage() {
+  const portfolioMeta = {
+  title: "Portfolio | MenPoruzhTech Projects & Case Studies",
+  description:
+    "Browse MenPoruzhTech's portfolio of custom websites, SaaS platforms, and mobile apps for startups and enterprises. See real results from our MERN stack expertise.",
+  keywords:
+    "project portfolio, web app portfolio, saas product showcase, software company projects, mern stack case studies, react nextjs projects, app design samples, client success stories, software portfolio website, startup project showcase, web development works, app development case study",
+  url: "https://menporuzhtech.com/portfolio",
+  ogImage: "https://menporuzhtech.com/Logo.png",
+};
+
   return (
+    <Layout meta={portfolioMeta}>
     <div className="min-h-screen bg-background">
       <Navbar />
 
@@ -18,10 +30,11 @@ export default function PortfolioPage() {
       <main className="relative z-10">
         <PortfolioHero />
         <PortfolioStats />
-        <PortfolioGrid />
+        {/* <PortfolioGrid /> */}
       </main>
 
       <Footer />
     </div>
+    </Layout>
   )
 }

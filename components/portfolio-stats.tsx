@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { BarChart, TrendingUp, Globe, Zap } from "lucide-react"
 
 const stats = [
@@ -34,33 +33,24 @@ export function PortfolioStats() {
   return (
     <section className="py-20 bg-muted/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        {/* Section Header */}
+        <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Project <span className="neon-text">Impact</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Our projects don't just look good – they deliver measurable results and drive real business value.
           </p>
-        </motion.div>
+        </div>
 
+        {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <motion.div
+          {stats.map((stat) => (
+            <div
               key={stat.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -10, rotateY: 5 }}
-              className="text-center perspective-1000"
+              className="text-center transform-gpu transition-transform duration-300 hover:-translate-y-2 hover:scale-105"
             >
-              <div className="glass-card rounded-xl p-6 glow-hover transform-gpu">
+              <div className="glass-card rounded-xl p-6 glow-hover">
                 <div className="flex items-center justify-center w-16 h-16 rounded-full neon-gradient mb-4 mx-auto">
                   <stat.icon className="w-8 h-8 text-white" />
                 </div>
@@ -68,7 +58,7 @@ export function PortfolioStats() {
                 <h3 className="text-lg font-semibold mb-2">{stat.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{stat.description}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
