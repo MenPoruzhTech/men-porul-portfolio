@@ -1,14 +1,15 @@
 "use client"
 
-import { Github, Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react"
+import { Github, Linkedin, Twitter, Mail, Phone, MapPin, Instagram, X } from "lucide-react"
 import Link from "next/link"
 import { ThemeLogo } from "@/components/theme-logo"
 
 const socialLinks = [
   { icon: Github, href: "#", label: "GitHub" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Mail, href: "mailto:contact@menporuzh.tech", label: "Email" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/menporuzh-tech-98185b38b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", label: "LinkedIn" },
+  { icon: X, href: "https://x.com/MenPoruzhTech/status/1979852271052603847?t=2JaFe5GNGz7j8w1BkGIFjQ&s=19", label: "Twitter" },
+  { icon: Instagram, href: "https://www.instagram.com/menporuzhtech?igsh=cG1pYnZ1NWs5azRi", label: "Instagram" },
+  { icon: Mail, href: "mailto:contact@menporuzhtech.com", label: "Email" },
 ]
 
 const quickLinks = [
@@ -43,7 +44,7 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <Phone className="h-4 w-4" />
-                <span>+91 63790 02566 / +91 94898 79627</span>
+                <span>+91 89038 67201 / +91 63833 22670</span>
               </div>
               <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4" />
