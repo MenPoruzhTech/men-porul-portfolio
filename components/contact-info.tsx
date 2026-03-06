@@ -13,9 +13,9 @@ const contactMethods = [
   {
     icon: Phone,
     title: "Phone",
-    value: "+91 63790 02566",
+    value: "+91 89038 67201",
     description: "Call us during business hours (IST)",
-    action: "tel:+916379002566",
+    action: "tel:+918903867201",
   },
   {
     icon: MapPin,
