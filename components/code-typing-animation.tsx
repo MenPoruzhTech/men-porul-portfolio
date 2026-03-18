@@ -28,16 +28,16 @@ const codeBlocks = [
     return innovation`,
     description: "Scalable and robust architecture"
   },
-  {
-    title: "AI Integration",
-    language: "Machine Learning",
-    icon: Zap,
-    color: "from-purple-500 to-pink-500",
-    code: `class AIEngine:
-    def predict_future(self):
-        return "Amazing results"`,
-    description: "Intelligent automation and insights"
-  }
+  // {
+  //   title: "AI Integration",
+  //   language: "Machine Learning",
+  //   icon: Zap,
+  //   color: "from-purple-500 to-pink-500",
+  //   code: `class AIEngine:
+  //   def predict_future(self):
+  //       return "Amazing results"`,
+  //   description: "Intelligent automation and insights"
+  // }
 ]
 
 export function CodeTypingAnimation() {

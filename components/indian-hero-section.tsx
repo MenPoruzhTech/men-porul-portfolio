@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Play, Code, Sparkles } from "lucide-react";
+import { ArrowRight, Play, Code, Sparkles, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { SimpleAnimation } from "@/components/simple-animations";
@@ -62,17 +62,22 @@ export function IndianHeroSection() {
               </div>
             </SimpleAnimation>
 
-            {/* Icons */}
-            <div className="mt-12 flex flex-wrap gap-6">
+            {/* Action Cards */}
+            <div className="mt-12 grid grid-cols-3 gap-3 sm:gap-6 max-w-lg lg:max-w-xl">
               {[
-                { Icon: Code, label: "Development" },
-                { Icon: Sparkles, label: "Innovation" },
-                { Icon: ArrowRight, label: "Growth" },
-              ].map(({ Icon, label }, i) => (
-                <SimpleAnimation key={i} type="fade" delay={0.7 + i * 0.2}>
-                  <div className="flex flex-col items-center space-y-2 p-4 rounded-lg glass-card hover:scale-110 hover:rotate-3 transition-transform cursor-pointer">
-                    <Icon className="w-8 h-8 text-[var(--brand-primary)]" />
-                    <span className="text-sm text-muted-foreground">{label}</span>
+                { Icon: Code, label: "Development", gradient: "from-teal-500/10 to-transparent" },
+                { Icon: Sparkles, label: "Innovation", gradient: "from-orange-500/10 to-transparent" },
+                { Icon: TrendingUp, label: "Growth", gradient: "from-yellow-500/10 to-transparent" },
+              ].map(({ Icon, label, gradient }, i) => (
+                <SimpleAnimation key={i} type="scale" delay={0.8 + i * 0.1}>
+                  <div className="group relative flex flex-col items-center justify-center p-3 sm:p-6 rounded-2xl glass-card transition-all duration-500 cursor-pointer overflow-hidden aspect-square text-center hover:scale-105 hover:-translate-y-2 logo-glow-hover border-teal-500/20 hover:border-teal-500/50">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                    <div className="relative z-10 flex flex-col items-center">
+                      <div className="mb-2 sm:mb-4 p-2 sm:p-3 rounded-xl bg-background/50 group-hover:bg-background/80 group-hover:scale-110 transition-all duration-500 shadow-sm">
+                        <Icon className="w-5 h-5 sm:w-8 sm:h-8 text-[var(--brand-primary)] group-hover:text-[var(--brand-secondary)] transition-colors duration-500" />
+                      </div>
+                      <span className="text-[10px] sm:text-sm font-bold tracking-wide uppercase text-muted-foreground group-hover:text-foreground transition-colors duration-500">{label}</span>
+                    </div>
                   </div>
                 </SimpleAnimation>
               ))}

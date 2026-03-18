@@ -7,7 +7,8 @@ import { IndianHeroSection } from "@/components/indian-hero-section"
 import { IndianAboutSection } from "@/components/indian-about-section"
 import { ComprehensiveServicesSection } from "@/components/comprehensive-services-section"
 import { TechnologiesGridSection } from "@/components/technologies-grid-section"
-import { AnalyticsSection } from "@/components/analytics-section"
+// import { AnalyticsSection } from "@/components/analytics-section"
+import { HappyClientsSection } from "@/components/happy-clients-section"
 import { FinalStatsSection } from "@/components/final-stats-section"
 import { EnhancedCTASection } from "@/components/enhanced-cta-section"
 import { CodeTypingAnimation } from "@/components/code-typing-animation"
@@ -43,7 +44,8 @@ export default function HomePage() {
             <CodeTypingAnimation />
           </SimpleAnimation>
           <TechnologiesGridSection />
-          <AnalyticsSection />
+          {/* <AnalyticsSection /> */}
+          <HappyClientsSection />
           <FinalStatsSection />
           <EnhancedCTASection />
         </main>
