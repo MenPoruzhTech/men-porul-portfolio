@@ -2,6 +2,7 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { AboutHero } from "@/components/about-hero"
+import { ProductsSection } from "@/components/products-section"
 import { TeamSection } from "@/components/team-section"
 import { ValuesSection } from "@/components/values-section"
 import Layout from "@/components/meta/layout"
@@ -27,6 +28,7 @@ export default function AboutPage() {
 
       <main className="relative z-10">
         <AboutHero />
+        <ProductsSection />
         <ValuesSection />
         {/* <TeamSection /> */}
       </main>
