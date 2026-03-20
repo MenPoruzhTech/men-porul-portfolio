@@ -151,46 +151,14 @@ export function BlogsSection() {
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-teal-500/5 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-500/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-10 opacity-0 animate-fade-in-up [animation-delay:200ms]">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Our Valuable <span className="neon-text">Blogs</span>
+            <span className="neon-text">Blogs</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            {headerSubtitle} Search by title, filter by tag, then open any post for full details.
+            {headerSubtitle} Read our latest insights and stories from the tech world.
           </p>
-
-          {/* Controls */}
-          <div className="mt-10 flex flex-col items-center gap-6">
-            <div className="w-full max-w-2xl">
-              <input
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search by title..."
-                className="w-full h-11 rounded-xl bg-background/50 border border-white/10 px-4 text-foreground placeholder:text-muted-foreground outline-none focus:border-white/20 focus:ring-2 focus:ring-[var(--brand-primary)]/20 transition-all duration-300"
-              />
-            </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              {tagButtons.map((tag) => {
-                const isActive = tag === selectedTag
-                return (
-                  <button
-                    key={tag}
-                    type="button"
-                    onClick={() => setSelectedTag(tag)}
-                    className={`px-5 py-2 rounded-full transition-all duration-300 border font-medium ${
-                      isActive
-                        ? "border-[var(--brand-primary)]/40 bg-white/5 text-[var(--brand-primary)]"
-                        : "border-white/10 bg-background/30 text-foreground hover:border-white/20 hover:bg-white/10"
-                    }`}
-                  >
-                    {tag}
-                  </button>
-                )
-              })}
-            </div>
-          </div>
         </div>
 
         {/* Blog cards: 3-column grid on large screens */}

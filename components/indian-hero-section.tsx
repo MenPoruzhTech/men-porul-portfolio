@@ -70,13 +70,13 @@ export function IndianHeroSection() {
                 { Icon: TrendingUp, label: "Growth", gradient: "from-yellow-500/10 to-transparent" },
               ].map(({ Icon, label, gradient }, i) => (
                 <SimpleAnimation key={i} type="scale" delay={0.8 + i * 0.1}>
-                  <div className="group relative flex flex-col items-center justify-center p-3 sm:p-6 rounded-2xl glass-card transition-all duration-500 cursor-pointer overflow-hidden aspect-square text-center hover:scale-105 hover:-translate-y-2 logo-glow-hover border-teal-500/20 hover:border-teal-500/50">
+                  <div className="group relative flex flex-col items-center justify-center p-4 sm:p-5 rounded-2xl glass-card transition-all duration-500 cursor-pointer overflow-hidden text-center hover:scale-105 hover:-translate-y-2 logo-glow-hover border-teal-500/20 hover:border-teal-500/50 h-full min-h-[120px] sm:min-h-[150px]">
                     <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                     <div className="relative z-10 flex flex-col items-center">
-                      <div className="mb-2 sm:mb-4 p-2 sm:p-3 rounded-xl bg-background/50 group-hover:bg-background/80 group-hover:scale-110 transition-all duration-500 shadow-sm">
+                      <div className="mb-2 sm:mb-4 p-2 sm:p-3 rounded-xl bg-background/50 group-hover:bg-background/80 group-hover:scale-110 transition-all duration-500 shadow-sm border border-white/5">
                         <Icon className="w-5 h-5 sm:w-8 sm:h-8 text-[var(--brand-primary)] group-hover:text-[var(--brand-secondary)] transition-colors duration-500" />
                       </div>
-                      <span className="text-[10px] sm:text-sm font-bold tracking-wide uppercase text-muted-foreground group-hover:text-foreground transition-colors duration-500">{label}</span>
+                      <span className="text-[10px] sm:text-xs md:text-sm font-bold tracking-wider uppercase text-muted-foreground group-hover:text-foreground transition-all duration-500">{label}</span>
                     </div>
                   </div>
                 </SimpleAnimation>
