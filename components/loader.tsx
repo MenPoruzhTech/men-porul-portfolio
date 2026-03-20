@@ -18,7 +18,7 @@ export function Loader({
 }: LoaderProps) {
   const sizeClasses = {
     sm: "w-12 h-12",
-    md: "w-30 h-30", 
+    md: "w-32 h-32",
     lg: "w-32 h-32"
   }
 
