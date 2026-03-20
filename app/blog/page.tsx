@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { BlogsSection } from "@/components/blogs-section"
+// import { FeaturedBlogs } from "@/components/featured-blogs"
 import Layout from "@/components/meta/layout"
 
 export default function BlogPage() {
@@ -30,6 +31,7 @@ export default function BlogPage() {
         />
 
         <main className="relative z-10">
+          {/* <FeaturedBlogs /> */}
           <BlogsSection />
         </main>
 
