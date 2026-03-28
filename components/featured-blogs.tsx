@@ -26,6 +26,17 @@ const featuredPosts = [
     accent: "from-orange-500/20 to-orange-500/5",
     border: "border-orange-500/20",
     glow: "shadow-[0_0_30px_rgba(255,140,0,0.15)]"
+  },
+  {
+    title: "Ooru Lift: The Community-Driven Urban Ride Sharing",
+    excerpt: "A revolutionary app connecting people for shared rides, making urban travel affordable while helping bike owners earn money effortlessly on every trip.",
+    image: "/images1/ooru-lift.png",
+    date: "Mar 20, 2024",
+    readTime: "6 min read",
+    tag: "Mobility",
+    accent: "from-indigo-500/20 to-indigo-500/5",
+    border: "border-indigo-500/20",
+    glow: "shadow-[0_0_30px_rgba(99,102,241,0.15)]"
   }
 ]
 
@@ -56,7 +67,7 @@ export function FeaturedBlogs() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredPosts.map((post, index) => (
             <motion.article
               key={post.title}
@@ -66,7 +77,7 @@ export function FeaturedBlogs() {
               transition={{ delay: index * 0.1 + 0.2 }}
               className={`glass-card rounded-2xl overflow-hidden h-full flex flex-col transition-all duration-300 hover:-translate-y-2 group border ${post.border} ${post.glow} bg-background/30`}
             >
-              <div className="relative h-64 sm:h-72 w-full overflow-hidden">
+              <div className="relative h-48 sm:h-56 w-full overflow-hidden">
                 <Image
                   src={post.image}
                   alt={post.title}
@@ -75,38 +86,33 @@ export function FeaturedBlogs() {
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60`} />
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-background/80 backdrop-blur-md border border-white/10 text-[var(--brand-primary)]">
+                  <span className="px-3 py-1 rounded-full text-[10px] font-semibold bg-background/80 backdrop-blur-md border border-white/10 text-[var(--brand-primary)]">
                     {post.tag}
                   </span>
                 </div>
               </div>
 
-              <div className="relative z-10 p-6 sm:p-8 flex flex-col flex-grow">
+              <div className="relative z-10 p-5 sm:p-6 flex flex-col flex-grow">
                 <div className={`absolute inset-0 bg-gradient-to-br ${post.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
                 
-                <div className="relative z-10">
-                  <div className="flex items-center gap-4 mb-4 text-xs sm:text-sm text-muted-foreground">
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="flex items-center gap-4 mb-3 text-[10px] sm:text-xs text-muted-foreground">
                     <span className="flex items-center gap-1.5">
-                      <Calendar className="w-4 h-4 text-[var(--brand-primary)]" />
+                      <Calendar className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
                       {post.date}
                     </span>
                     <span className="flex items-center gap-1.5">
-                      <Clock className="w-4 h-4 text-[var(--brand-primary)]" />
+                      <Clock className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
                       {post.readTime}
                     </span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold mb-4 group-hover:neon-text transition-all duration-300 leading-tight">
+                  <h3 className="text-lg sm:text-xl font-bold mb-3 group-hover:neon-text transition-all duration-300 leading-tight">
                     {post.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-6 flex-grow line-clamp-3">
+                  <p className="text-muted-foreground text-sm leading-relaxed flex-grow line-clamp-3">
                     {post.excerpt}
                   </p>
-
-                  <button className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-background/50 border border-white/10 font-medium transition-all duration-300 hover:bg-white/10 hover:border-white/20 group/btn mt-auto">
-                    <span>Read Full Story</span>
-                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                  </button>
                 </div>
               </div>
             </motion.article>
@@ -114,5 +120,6 @@ export function FeaturedBlogs() {
         </div>
       </div>
     </section>
+
   )
 }
