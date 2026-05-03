@@ -6,7 +6,7 @@ const contactItems = [
   {
     icon: Mail,
     title: "Email Us",
-    info: "contact@menporuzh.tech",
+    info: "contact@menporuzhtech.com",
     description: "Send us an email anytime",
   },
   {
