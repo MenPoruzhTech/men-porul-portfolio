@@ -179,7 +179,7 @@ export function ContactForm() {
             onBlur={() => setFocusedField(null)}
             focused={focusedField === "service"}
             options={[
-              { value: "", label: "Select a service" },
+              { value: "", label: "" },
               { value: "web-development", label: "Web Development" },
               { value: "mobile-development", label: "Mobile App Development" },
               { value: "digital-transformation", label: "Digital Transformation" },
@@ -196,7 +196,7 @@ export function ContactForm() {
             onBlur={() => setFocusedField(null)}
             focused={focusedField === "budget"}
             options={[
-              { value: "", label: "Select budget range" },
+              { value: "", label: "" },
               { value: "under-4l", label: "Under ₹4,00,000" },
               { value: "4l-12l", label: "₹4,00,000 - ₹12,00,000" },
               { value: "12l-40l", label: "₹12,00,000 - ₹40,00,000" },
@@ -285,13 +285,13 @@ function FloatingLabelInput({
         onFocus={onFocus}
         onBlur={onBlur}
         className={`w-full px-4 pt-6 pb-2 glass-card rounded-lg border-2 transition-all duration-200 bg-transparent focus:outline-none ${
-          error ? "border-red-500/50 focus:border-red-500" : focused ? "border-pink-500 glow-hover" : "border-border hover:border-pink-500/50"
+          error ? "border-red-500/50 focus:border-red-500" : focused ? "border-teal-500 glow-hover" : "border-border hover:border-teal-500/50"
         }`}
         required={required}
       />
       <label
         className={`absolute left-4 transition-all duration-200 pointer-events-none ${
-          shouldFloat ? "top-2 text-xs text-teal-500" : "top-1/2 -translate-y-1/2 text-muted-foreground"
+          shouldFloat ? "top-2 text-xs text-teal-500 font-medium" : "top-1/2 -translate-y-1/2 text-muted-foreground"
         }`}
       >
         {label}
@@ -333,7 +333,7 @@ function FloatingLabelSelect({
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}
-        className={`w-full px-4 pt-7 pb-3 glass-card rounded-lg border-2 transition-all duration-200 bg-background focus:outline-none appearance-none cursor-pointer ${
+        className={`w-full px-4 pt-6 pb-2 glass-card rounded-lg border-2 transition-all duration-200 bg-transparent focus:outline-none appearance-none cursor-pointer ${
           focused ? "border-teal-500 glow-hover" : "border-border hover:border-teal-500/50"
         }`}
       >
@@ -350,7 +350,7 @@ function FloatingLabelSelect({
       </select>
       <label
         className={`absolute left-4 transition-all duration-200 pointer-events-none ${
-          shouldFloat ? "top-2 text-xs text-teal-500 font-medium" : "top-1/2 -translate-y-1/2 text-muted-foreground text-sm"
+          shouldFloat ? "top-2 text-xs text-teal-500 font-medium" : "top-1/2 -translate-y-1/2 text-muted-foreground"
         }`}
       >
         {label}
@@ -400,13 +400,13 @@ function FloatingLabelTextarea({
         onBlur={onBlur}
         rows={rows}
         className={`w-full px-4 pt-6 pb-2 glass-card rounded-lg border-2 transition-all duration-200 bg-transparent focus:outline-none resize-none ${
-          error ? "border-red-500/50 focus:border-red-500" : focused ? "border-pink-500 glow-hover" : "border-border hover:border-pink-500/50"
+          error ? "border-red-500/50 focus:border-red-500" : focused ? "border-teal-500 glow-hover" : "border-border hover:border-teal-500/50"
         }`}
         required={required}
       />
       <label
         className={`absolute left-4 transition-all duration-200 pointer-events-none ${
-          shouldFloat ? "top-2 text-xs text-teal-500" : "top-6 text-muted-foreground"
+          shouldFloat ? "top-2 text-xs text-teal-500 font-medium" : "top-6 text-muted-foreground"
         }`}
       >
         {label}

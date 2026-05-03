@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import {
   Code, Smartphone, Globe, Database, Cloud, Shield, Zap,
-  Palette, Search, Headphones, Cog, ChevronDown
+  Palette, Search, Headphones, Cog, ChevronDown, Brain
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -118,6 +118,16 @@ const services = [
     features: ["Strategy Planning", "Architecture Design", "Code Reviews", "Best Practices"],
     technologies: ["Tech Architecture", "Industry Standards", "Documentation"],
   },
+  {
+    id: "ai-ml",
+    icon: Brain,
+    title: "AI & Machine Learning Solutions",
+    shortDescription: "Empowering business with custom AI and machine learning models.",
+    fullDescription:
+      "We build intelligent systems using deep learning, natural language processing, and predictive analytics to automate tasks and provide actionable insights.",
+    features: ["Deep Learning", "Natural Language Processing", "Computer Vision", "Predictive Analytics"],
+    technologies: ["TensorFlow", "PyTorch", "Python", "Hugging Face"],
+  },
 ]
 
 export function ServicesGrid() {
@@ -147,13 +157,13 @@ export function ServicesGrid() {
         </div>
 
         {/* Cards */}
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => {
             const isOpen = selectedService === service.id
             return (
               <div
                 key={service.id}
-                className={`break-inside-avoid glass-card rounded-xl p-6 glow-hover cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
+                className={`glass-card rounded-xl p-6 glow-hover cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
                   isOpen ? "border border-[var(--neon-cyan)]/50" : ""
                 }`}
                 onClick={() => setSelectedService(isOpen ? null : service.id)}

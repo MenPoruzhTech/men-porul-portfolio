@@ -6,12 +6,14 @@ import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeLogo } from "@/components/theme-logo"
+import { HeaderThemeToggle } from "@/components/header-theme-toggle"
 
 const navItems = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Portfolio", href: "/portfolio" },
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ]
 
@@ -33,7 +35,7 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-22">
+        <div className="flex items-center justify-between h-[72px] sm:h-[76px]">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center group">
@@ -49,34 +51,44 @@ export function Navbar() {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-baseline space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`relative px-3 py-2 text-base font-medium transition-colors duration-200 hover:text-[var(--brand-primary)] ${
-                  pathname === item.href ? "brand-text" : "text-foreground"
-                }`}
-              >
-                {item.name}
-                {pathname === item.href && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 neon-gradient rounded-full" />
-                )}
-              </Link>
-            ))}
-          </div>
+          <div className="flex items-center gap-3">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-baseline space-x-8">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`relative px-3 py-2 text-base font-medium transition-colors duration-200 hover:text-[var(--brand-primary)] ${
+                    pathname === item.href ? "brand-text" : "text-foreground"
+                  }`}
+                >
+                  {item.name}
+                  {pathname === item.href && (
+                    <span className="absolute bottom-0 left-0 right-0 h-0.5 neon-gradient rounded-full" />
+                  )}
+                </Link>
+              ))}
+            </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground hover:text-[var(--brand-primary)] transition-transform duration-200 active:scale-95"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
+            {/* Theme toggle (desktop) */}
+            <div className="hidden md:flex">
+              <HeaderThemeToggle />
+            </div>
+
+            {/* Theme toggle + Mobile Menu Button */}
+            <div className="md:hidden flex items-center gap-2">
+              <HeaderThemeToggle />
+
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-foreground hover:text-[var(--brand-primary)] transition-transform duration-200 active:scale-95"
+                aria-label="Open menu"
+              >
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
+            </div>
           </div>
         </div>
       </div>

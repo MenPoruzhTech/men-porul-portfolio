@@ -28,16 +28,16 @@ const codeBlocks = [
     return innovation`,
     description: "Scalable and robust architecture"
   },
-  {
-    title: "AI Integration",
-    language: "Machine Learning",
-    icon: Zap,
-    color: "from-purple-500 to-pink-500",
-    code: `class AIEngine:
-    def predict_future(self):
-        return "Amazing results"`,
-    description: "Intelligent automation and insights"
-  }
+  // {
+  //   title: "AI Integration",
+  //   language: "Machine Learning",
+  //   icon: Zap,
+  //   color: "from-purple-500 to-pink-500",
+  //   code: `class AIEngine:
+  //   def predict_future(self):
+  //       return "Amazing results"`,
+  //   description: "Intelligent automation and insights"
+  // }
 ]
 
 export function CodeTypingAnimation() {
@@ -57,15 +57,15 @@ export function CodeTypingAnimation() {
 
         {/* Code Blocks Grid */}
         <StaggeredSimple
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
           staggerDelay={0.2}
         >
           {codeBlocks.map((block) => (
             <div
               key={block.title}
-              className="group transform transition-all duration-300 hover:-translate-y-3"
+              className="group transform transition-all duration-300 hover:-translate-y-3 h-full"
             >
-              <div className="relative glass-card p-6 rounded-xl hover:brand-glow-hover transition-all duration-300 h-full">
+              <div className="relative glass-card p-6 rounded-xl hover:brand-glow-hover transition-all duration-300 h-full flex flex-col">
                 {/* Header */}
                 <div className="flex items-center space-x-3 mb-4">
                   <div
@@ -84,7 +84,7 @@ export function CodeTypingAnimation() {
                 </div>
 
                 {/* Code Block */}
-                <div className="bg-gray-900/80 rounded-lg p-4 mb-4 font-mono text-sm overflow-hidden">
+                <div className="bg-gray-900/80 rounded-lg p-4 mb-4 font-mono text-sm overflow-hidden min-h-[160px] flex flex-col">
                   <div className="flex items-center space-x-2 mb-2">
                     <div className="w-2 h-2 rounded-full bg-red-500"></div>
                     <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
@@ -99,7 +99,7 @@ export function CodeTypingAnimation() {
                 </div>
 
                 {/* Description */}
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground mt-auto">
                   {block.description}
                 </p>
 

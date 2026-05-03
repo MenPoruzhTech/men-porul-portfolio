@@ -161,6 +161,7 @@ export function StaggeredSimple({
             duration: 0.5,
             ease: "easeOut",
           }}
+          className="h-full"
         >
           {child}
         </motion.div>

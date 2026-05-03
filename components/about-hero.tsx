@@ -29,7 +29,8 @@ export function AboutHero() {
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             We are a dynamic startup team of passionate innovators, developers, and designers building the future of technology. 
-            As a young company, we bring fresh perspectives and agile solutions to every project.
+            At <span className="text-foreground font-semibold">MenPoruzhTech</span>, we transform complex ideas into scalable digital realities, 
+            combining cutting-edge technology with user-centric design to help businesses thrive in the digital age.
           </p>
         </div>
 
